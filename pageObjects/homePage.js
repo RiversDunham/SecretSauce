@@ -8,6 +8,10 @@ class HomePage extends Page {
         return $('.app_logo');
     }
 
+    get errorPopup() {
+        return $('[data-test="error"]');
+    }
+
     async positiveAssertion() {
         await this.appLogo.isExisting()
     }
