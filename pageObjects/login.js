@@ -16,11 +16,9 @@ class Login extends Page {
         return $('#login-button');
     }
 
-    async enterInfo(usernameArray, password) {
-        for (let x = 0; x < usernameArray.length; x ++) {
-            await this.inputUsername.setValue(usernameArray[x]);
-            await this.inputPassword.setValue(password);
-        }
+    async enterInfo(username, password) {
+        await this.inputUsername.setValue(username);
+        await this.inputPassword.setValue(password);
     }
 
     async clickLogin() {
