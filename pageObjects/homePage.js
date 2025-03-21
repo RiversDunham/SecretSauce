@@ -8,25 +8,6 @@ class HomePage extends Page {
         return $('.app_logo');
     }
 
-    get errorPopup() {
-        return $('[data-test="error"]');
-    }
-    get hamburgerButton() {
-        return $('#react-burger-menu-btn')
-    }
-    get allItemsButton() {
-        return $('#inventory_sidebar_link')
-    }
-    get aboutButton() {
-        return $('#about_sidebar_link')
-    }
-    get logoutButton() {
-        return $('#logout_sidebar_link')
-    }
-    get resetButton() {
-        return $('#reset_sidebar_link')
-    }
-
     async positiveAssertion() {
         await this.appLogo.isExisting()
     }
