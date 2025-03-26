@@ -2,6 +2,10 @@ import Page from './base.js';
 import {$} from '@wdio/globals';
 //sub page object for logging in
 
+let baseUsernameArray = ["standard_user", "locked_out_user", "problem_user", "performance_glitch_user", "error_user", "visual_user"];
+
+let usernameArray = baseUsernameArray
+
 class Login extends Page {
 
     get inputUsername() {
@@ -16,13 +20,15 @@ class Login extends Page {
         return $('#login-button');
     }
 
-    async enterInfo(username, password) {
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
+    async resetArray() {
+        usernameArray = [...baseUsernameArray];
     }
 
-    async clickLogin() {
+    async enterInfo(password) {
+        await this.inputUsername.setValue(usernameArray[0]);
+        await this.inputPassword.setValue(password);
         await this.loginButton.click();
+        usernameArray.shift();
     }
 
     openURL() {
